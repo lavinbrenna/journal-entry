@@ -1,14 +1,14 @@
-function Entry(title, text){
+export default function Entry(title, text){
   this.title = title;
   this.text = text;
 }
 
-Entry.prototype.createTeaser = function(){
+Entry.prototype.createTeaser = function(text){
   text = this.text;
   text = text.split(".");
   // console.log(text);
   let firstSentenceArray = text[0].split(" ");
-  let teaserArray = []
+  let teaserArray = [];
   // console.log("First sentence:", teaserArray);
   if(firstSentenceArray.length > 8){
     for(let i = 0; i < 8; i ++){
@@ -16,7 +16,7 @@ Entry.prototype.createTeaser = function(){
     }
     return teaserArray.join(" ") + "...";
   }else{
-     return firstSentenceArray.join(" ") + ".";
-   }
-}
+    return firstSentenceArray.join(" ") + ".";
+  }
+};
 
